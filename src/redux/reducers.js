@@ -9,10 +9,9 @@ const reducer = (state = initialState, action) => {
     //       total_count: action.payload.info.count,
     //   }
 
-      const newState = action.payload.map((e) => ({
-        // total_count: e.info.count,
-        total_count: e,
-        
+      const newState = Object.keys(action.payload).map((key) => ({
+        total_count: action.payload[0].info.count,
+        info: action.payload[1].results,
       }));
 
       return newState;

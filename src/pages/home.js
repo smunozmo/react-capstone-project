@@ -18,7 +18,7 @@ const Home = () => {
         }
         charactersFetch = await fetch(`${url}${speciesEndPoint}${speciesList[i]}`);
         const speciesFetch = await charactersFetch.json();
-        charactersData.push(speciesFetch.info.count);
+        charactersData.push(speciesFetch);
         console.log(charactersData);
       }
 
