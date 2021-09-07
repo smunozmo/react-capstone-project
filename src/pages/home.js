@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getCharacters } from '../redux/actioncreator';
 
 const Home = () => {
@@ -19,7 +20,6 @@ const Home = () => {
         charactersFetch = await fetch(`${url}${speciesEndPoint}${speciesList[i]}`);
         const speciesFetch = await charactersFetch.json();
         charactersData.push(speciesFetch);
-        console.log(charactersData);
       }
 
       return dispatch(getCharacters(charactersData));
@@ -28,7 +28,6 @@ const Home = () => {
   }, []);
 
   const characterList = useSelector((state) => state.characters);
-  console.log('char list', characterList);
 
   const loader = (
     <div className="spinner-border" role="status">
@@ -44,7 +43,8 @@ const Home = () => {
       <p>stats by species</p>
       <div className="row">
         <div className="col-6">
-          {speciesList[1]}
+          <Link to="categories">{speciesList[1]}</Link>
+
 &nbsp;
           {characterList.length ? characterList[1].total_count : loader}
         </div>

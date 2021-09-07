@@ -1,4 +1,4 @@
-import { GET_ALL_CHARACTERS } from './actiontypes';
+import { GET_ALL_CHARACTERS, GET_BY_CATEGORIES } from './actiontypes';
 
 const initialState = [];
 
@@ -10,11 +10,15 @@ const reducer = (state = initialState, action) => {
     //   }
 
       const newState = Object.keys(action.payload).map((key) => ({
-        total_count: action.payload[0].info.count,
-        info: action.payload[1].results,
+        total_count: action.payload[key].info.count,
+        info: action.payload[key].results,
       }));
 
       return newState;
+    }
+    case GET_BY_CATEGORIES: {
+      console.log('reducer ok');
+      return state;
     }
     default:
       return state;
