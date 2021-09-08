@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getCharacters } from '../redux/actioncreator';
+import { getCharacters, getByCategories } from '../redux/actioncreator';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -35,35 +35,37 @@ const Home = () => {
     </div>
   );
 
+  const CurrentCategory = (e) => (dispatch(getByCategories(e.target.id)))
+
+  const StatsBySpecies = () => (
+    <div className="row">
+      {characterList.map((character, i) => {
+        if (i > 0) {
+          return (
+            <div className="col-6">
+              <Link to="categories" key={i}>
+                <button type="button" onClick={CurrentCategory} id={i} className="btn btn-outline-danger text-nowrap">{speciesList[i]}</button>
+                {' '}
+              </Link>
+
+              <p>{characterList.length ? character.total_count : loader}</p>
+
+            </div>
+
+          );
+        }
+      })}
+    </div>
+  );
+
   return (
     <div>
       <p>Rick and Morty Characters</p>
       Total characters: &nbsp;
       {characterList.length ? characterList[0].total_count : loader}
       <p>stats by species</p>
-      <div className="row">
-        <div className="col-6">
-          <Link to="categories">{speciesList[1]}</Link>
 
-&nbsp;
-          {characterList.length ? characterList[1].total_count : loader}
-        </div>
-        <div className="col-6">
-          {speciesList[2]}
-&nbsp;
-          {characterList.length ? characterList[2].total_count : loader}
-        </div>
-        <div className="col-6">
-          {speciesList[3]}
-&nbsp;
-          {characterList.length ? characterList[3].total_count : loader}
-        </div>
-        <div className="col-6">
-          {speciesList[4]}
-&nbsp;
-          {characterList.length ? characterList[4].total_count : loader}
-        </div>
-      </div>
+      <StatsBySpecies />
     </div>
   );
 };

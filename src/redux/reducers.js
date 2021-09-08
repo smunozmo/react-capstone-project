@@ -17,8 +17,11 @@ const reducer = (state = initialState, action) => {
       return newState;
     }
     case GET_BY_CATEGORIES: {
-      console.log('reducer ok');
-      return state;
+        const newState = {
+            category_index: action.payload,
+        }
+      return [...state, newState ]
+      ;
     }
     default:
       return state;
