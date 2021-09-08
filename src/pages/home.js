@@ -2,35 +2,38 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCharacters, getByCategories } from '../redux/actioncreator';
-import FetchSpecies from '../components/specieslist';
-
-const GetSpeciesList = async () => {
-  const getList = await FetchSpecies('?');
-  return getList;
-};
-
-// console.log('list', CreateSpeciesList());
+import speciesList from '../components/specieslist';
 
 const Home = () => {
-  GetSpeciesList().then((res) => console.log(res));
   const dispatch = useDispatch();
   const speciesEndPoint = '?species=';
-  const speciesList = ["Human", "Alien", "Humanoid", "unknown", "Poopybutthole", "Mythological Creature", "Animal", "Robot", "Cronenberg", "Disease", "Planet"];
 
   useEffect(() => {
     const fetchCharacters = async () => {
       const url = 'https://rickandmortyapi.com/api/character/';
       const charactersData = [];
       let charactersFetch = [];
-      for (let i = 0; i < speciesList.length; i++) {
+
+      // for (let i = 0; i < speciesList.length; i += 1) {
+      //   if (i === 0) {
+      //     charactersFetch = await fetch(`${url}${speciesList[i]}`);
+      //   }
+      //   charactersFetch = await fetch(`${url}${speciesEndPoint}${speciesList[i]}`);
+      //   const speciesFetch = await charactersFetch.json();
+      //   charactersData.push(speciesFetch);
+      // }
+      speciesList.forEach(async (e, i) => {
         if (i === 0) {
-          charactersFetch = await fetch(`${url}${speciesList[i]}`);
+          charactersFetch = await fetch(`${url}${e}`);
         }
-        charactersFetch = await fetch(`${url}${speciesEndPoint}${speciesList[i]}`);
+        charactersFetch = await fetch(`${url}${speciesEndPoint}${e}`);
+
         const speciesFetch = await charactersFetch.json();
         charactersData.push(speciesFetch);
-      }
+        return charactersData;
+      });
 
+      console.log(await charactersData);
       return dispatch(getCharacters(charactersData));
     };
     fetchCharacters();

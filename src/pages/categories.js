@@ -1,12 +1,10 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import speciesList from '../components/specieslist';
 
 const Categories = () => {
-  const speciesList = ['', 'Human', 'Humanoid', 'Alien', 'Animal'];
-
   const characterList = useSelector((state) => state.characters);
   const categoryIndex = characterList[characterList.length - 1].category_index;
-  console.log('categ i', categoryIndex);
 
   const SpeciesBreakdown = () => (
     <div>
