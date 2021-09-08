@@ -25,8 +25,7 @@ const Categories = () => {
   return (
     <div>
       <Link to="/">Back Home</Link>
-      <p>Rick and Morty Characters</p>
-      {speciesList[1]}
+      <p>{speciesList[categoryIndex]}</p>
       {' '}
 &nbsp;
       <p>species breakdown</p>

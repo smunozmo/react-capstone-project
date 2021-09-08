@@ -2,11 +2,20 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCharacters, getByCategories } from '../redux/actioncreator';
+import FetchSpecies from '../components/specieslist';
+
+const GetSpeciesList = async () => {
+  const getList = await FetchSpecies('?');
+  return getList;
+};
+
+// console.log('list', CreateSpeciesList());
 
 const Home = () => {
+  GetSpeciesList().then((res) => console.log(res));
   const dispatch = useDispatch();
   const speciesEndPoint = '?species=';
-  const speciesList = ['', 'Human', 'Humanoid', 'Alien', 'Animal'];
+  const speciesList = ["Human", "Alien", "Humanoid", "unknown", "Poopybutthole", "Mythological Creature", "Animal", "Robot", "Cronenberg", "Disease", "Planet"];
 
   useEffect(() => {
     const fetchCharacters = async () => {
@@ -35,7 +44,7 @@ const Home = () => {
     </div>
   );
 
-  const CurrentCategory = (e) => (dispatch(getByCategories(e.target.id)))
+  const CurrentCategory = (e) => (dispatch(getByCategories(e.target.id)));
 
   const StatsBySpecies = () => (
     <div className="row">
