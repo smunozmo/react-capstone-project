@@ -14,51 +14,34 @@ const Home = () => {
       const charactersData = [];
       let charactersFetch = [];
 
-      // for (let i = 0; i < speciesList.length; i += 1) {
-      //   if (i === 0) {
-      //     charactersFetch = await fetch(`${url}${speciesList[i]}`);
-      //   }
-      //   charactersFetch = await fetch(`${url}${speciesEndPoint}${speciesList[i]}`);
-      //   const speciesFetch = await charactersFetch.json();
-      //   charactersData.push(speciesFetch);
-      // }
-      
       const getData = async (e) => {
         charactersFetch = await fetch(e);
         const speciesFetch = await charactersFetch.json();
         charactersData.push(speciesFetch);
+        console.log('ch', charactersData);
         return charactersData;
-      }
-
-      // for (const iterator of speciesList) {
-      //   if (iterator === '') {
-      //     getData(`${url}${iterator}`);
-      //   }
-      //   charactersFetch = getData(`${url}${speciesEndPoint}${iterator}`);
-      // }
+      };
 
       speciesList.map((e, i) => {
         if (i === 0) {
           getData(`${url}${e}`);
         }
-        charactersFetch = getData(`${url}${speciesEndPoint}${e}`);
+        getData(`${url}${speciesEndPoint}${e}`);
+
+        console.log('char i', i);
         return charactersData;
       });
 
       const ListCheck = () => {
         if (charactersData.length != 0) {
-          clearInterval(getStoreData)
-        } 
-        dispatch(getCharacters(charactersData))
-      }
+          clearInterval(getStoreData);
+        }
+        dispatch(getCharacters(charactersData));
+      };
 
-      const getStoreData = setInterval(() => {ListCheck()}, 500);
+      const getStoreData = setInterval(() => { ListCheck(); }, 1500);
 
-      // if (charactersData.length != 0) {
-      //   clearInterval(getStoreData)
-      // }
-      // setTimeout(clearInterval(getStoreData), 1000);
-      return console.log('char', charactersData);;
+      return console.log('char', charactersData);
     };
     fetchCharacters();
   }, []);
@@ -78,13 +61,13 @@ const Home = () => {
       {characterList.map((character, i) => {
         if (i > 0) {
           return (
-            <div className="col-6">
+            <div className={(i%2 == 0 ? 'col-6 py-5 text-end' : 'col-6 py-5 text-end opacity')}>
               <Link to="categories" key={i}>
-                <button type="button" onClick={CurrentCategory} id={i} className="btn btn-outline-danger text-nowrap">{speciesList[i]}</button>
+                <button type="button" onClick={CurrentCategory} id={i} className="btn btn-outline-danger text-nowrap button">{speciesList[i]}</button>
                 {' '}
               </Link>
 
-              <p>{characterList.length ? character.total_count : loader}</p>
+              <p className="fs-3">{characterList.length ? character.total_count : loader}</p>
 
             </div>
 
@@ -95,10 +78,19 @@ const Home = () => {
   );
 
   return (
-    <div>
-      <p>Rick and Morty Characters</p>
-      Total characters: &nbsp;
-      {characterList.length ? characterList[0].total_count : loader}
+    <div className="container">
+      <p className="text-center p-2">Rick and Morty Characters</p>
+      <div className="row py-5">
+        <div className="col-6">
+          Image
+        </div>
+        <div className="col-6">
+        <p className="mainStat">Total characters: &nbsp;</p>
+        <p className="fs-4">{characterList.length ? characterList[0].total_count : loader}</p>
+          
+        </div>
+      </div>
+      
       <p>stats by species</p>
       <StatsBySpecies />
     </div>
