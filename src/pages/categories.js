@@ -9,13 +9,16 @@ const Categories = () => {
   const SpeciesBreakdown = () => (
     <div className="row">
       {characterList[categoryIndex].info.map((character) => (
-        <div className="row species mb-1">
-          <div key={character.id} className="col-4">
+        <div className="row species mb-1" key={character.id}>
+          <div className="col-4">
             <img src={character.image} className="avatar ms-2 mt-3" alt="" />
           </div>
-          <div key={character.id} className="col-8 text-end">
+          <div className="col-8 text-end">
             <p className="fs-1">{character.name}</p>
-            <p>Status: {character.status}</p>
+            <p>
+              status:&nbsp;
+              {character.status}
+            </p>
             <p>{character.species}</p>
           </div>
         </div>
@@ -30,7 +33,7 @@ const Categories = () => {
         <div className="col-6" />
         <div className="col-6 text-end pe-5">
           <p className="mainStat"><span className="bg-info p-1">{speciesList[categoryIndex]}</span></p>
-          <p><span className="fs-3 bg-info p-1">{characterList.length ? characterList[categoryIndex].total_count : loader}</span></p>
+          <p><span className="fs-3 bg-info p-1">{characterList[categoryIndex].total_count}</span></p>
         </div>
       </div>
       <p><span className="shadow bg-info p-1 m-1">species breakdown</span></p>

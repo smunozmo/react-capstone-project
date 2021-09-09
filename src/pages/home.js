@@ -18,7 +18,6 @@ const Home = () => {
         charactersFetch = await fetch(e);
         const speciesFetch = await charactersFetch.json();
         charactersData.push(speciesFetch);
-        console.log('ch', charactersData);
         return charactersData;
       };
 
@@ -28,12 +27,11 @@ const Home = () => {
         }
         getData(`${url}${speciesEndPoint}${e}`);
 
-        console.log('char i', i);
         return charactersData;
       });
 
       const ListCheck = () => {
-        if (charactersData.length != 0) {
+        if (charactersData.length !== 0) {
           clearInterval(getStoreData);
         }
         dispatch(getCharacters(charactersData));
@@ -41,7 +39,7 @@ const Home = () => {
 
       const getStoreData = setInterval(() => { ListCheck(); }, 1500);
 
-      return console.log('char', charactersData);
+      return charactersData;
     };
     fetchCharacters();
   }, []);
@@ -61,8 +59,8 @@ const Home = () => {
       {characterList.map((character, i) => {
         if (i > 0) {
           return (
-            <div className="col-6 py-5 text-end" style={{ backgroundImage: `url(${characterList[i].info[0].image})`, backgroundSize: 'cover'}}>
-              <Link to="categories" key={i}>
+            <div className="col-6 py-5 text-end" style={{ backgroundImage: `url(${characterList[i].info[0].image})`, backgroundSize: 'cover' }}>
+              <Link to="categories">
                 <button type="button" onClick={CurrentCategory} id={i} className="btn btn-info text-nowrap button">{speciesList[i]}</button>
                 {' '}
               </Link>
@@ -72,6 +70,7 @@ const Home = () => {
 
           );
         }
+        return null;
       })}
     </div>
   );

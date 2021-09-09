@@ -1,5 +1,5 @@
 body {
-  font-family: "Poppins", "Segoe UI", "Roboto";
+  font-family: "Poppins", sans-serif;
   background-image: url(/src/background.jpeg);
   background-position: center;
   background-repeat: no-repeat;
@@ -17,9 +17,6 @@ a {
   color: white;
   text-decoration: none;
 }
-/* .opacity {
-  opacity: 0.75;
-} */
 
 .mainStat {
   font-size: x-large;
@@ -32,12 +29,9 @@ a {
   font-size: x-large;
   text-transform: uppercase;
   font-weight: 900;
-  /* background: none; */
   color: white;
-  /* border: none; */
   padding: 0;
   cursor: pointer;
-  /* outline: inherit; */
   opacity: 1 !important;
 }
 
@@ -50,6 +44,6 @@ a {
 }
 
 .species {
-  background-color: yellowgreen;
+  background-color: rgb(28, 33, 100);
   opacity: 0.95;
 }
