@@ -1,4 +1,6 @@
-import { GET_ALL_CHARACTERS, GET_BY_CATEGORIES, GET_ALL_SPECIES, CLEAR_LIST } from './actiontypes';
+import {
+  GET_ALL_CHARACTERS, GET_BY_CATEGORIES, GET_ALL_SPECIES, CLEAR_LIST,
+} from './actiontypes';
 
 export const getCharacters = (payload) => ({
   type: GET_ALL_CHARACTERS,

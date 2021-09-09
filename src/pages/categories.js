@@ -26,7 +26,7 @@ const Categories = () => {
       ))}
     </div>
   );
-  
+
   const dispatch = useDispatch();
   const ClearList = () => (dispatch(clearList()));
 
@@ -35,7 +35,8 @@ const Categories = () => {
       <p className="p-2">
         <Link to="/">
           <button type="button" onClick={ClearList} className="btn btn-info backbutton text-end">&lt; Back Home</button>
-        </Link></p>
+        </Link>
+      </p>
       <div className="row py-5">
         <div className="col-6" />
         <div className="col-6 text-end pe-5">

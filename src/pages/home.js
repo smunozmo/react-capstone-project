@@ -31,13 +31,13 @@ const Home = () => {
       });
 
       const ListCheck = () => {
-        if (charactersData.length !== 0) {
+        if (Number(charactersData[0].info.count) === 671) {
           clearInterval(getStoreData);
         }
         dispatch(getCharacters(charactersData));
       };
 
-      const getStoreData = setInterval(() => { ListCheck(); }, 1500);
+      const getStoreData = setInterval(() => { ListCheck(); }, 2000);
 
       return charactersData;
     };
@@ -51,6 +51,13 @@ const Home = () => {
       <span className="visually-hidden">Loading...</span>
     </div>
   );
+
+  const loadingDots = (
+    <div className="text-center fs-3 bg-info mt-5 p-3">
+      Fetching data from outer space . . .
+    </div>
+  );
+
 
   const CurrentCategory = (e) => (dispatch(getByCategories(e.target.id)));
 
@@ -83,7 +90,7 @@ const Home = () => {
         </div>
       </div>
       <p><span className="shadow bg-info p-1">stats by species</span></p>
-      <StatsBySpecies />
+      {characterList.length ? <StatsBySpecies /> : loadingDots}
     </div>
   );
 };
