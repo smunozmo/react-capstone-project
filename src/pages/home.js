@@ -62,12 +62,9 @@ const Home = () => {
             <div className="col-6 py-5 text-end" style={{ backgroundImage: `url(${characterList[i].info[0].image})`, backgroundSize: 'cover' }}>
               <Link to="categories">
                 <button type="button" onClick={CurrentCategory} id={i} className="btn btn-info button text-end">{speciesList[i]}</button>
-                {' '}
               </Link>
               <p><span className="fs-3 bg-info p-1 shadow-lg">{characterList.length ? character.total_count : loader}</span></p>
-
             </div>
-
           );
         }
         return null;
@@ -77,7 +74,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <p className="text-center p-2">Rick and Morty Characters</p>
+      <p className="text-center p-2">Rick and Morty Characters App</p>
       <div className="row py-5">
         <div className="col-6" />
         <div className="col-6">

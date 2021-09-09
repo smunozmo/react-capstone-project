@@ -1,6 +1,7 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import speciesList from '../components/specieslist';
+import { clearList } from '../redux/actioncreator';
 
 const Categories = () => {
   const characterList = useSelector((state) => state.characters);
@@ -25,10 +26,16 @@ const Categories = () => {
       ))}
     </div>
   );
+  
+  const dispatch = useDispatch();
+  const ClearList = () => (dispatch(clearList()));
 
   return (
     <div className="container p-0">
-      <p className="p-2"><Link to="/">&lt; Back Home</Link></p>
+      <p className="p-2">
+        <Link to="/">
+          <button type="button" onClick={ClearList} className="btn btn-info backbutton text-end">&lt; Back Home</button>
+        </Link></p>
       <div className="row py-5">
         <div className="col-6" />
         <div className="col-6 text-end pe-5">

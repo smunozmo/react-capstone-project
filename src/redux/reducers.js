@@ -1,4 +1,4 @@
-import { GET_ALL_CHARACTERS, GET_BY_CATEGORIES, GET_ALL_SPECIES } from './actiontypes';
+import { GET_ALL_CHARACTERS, GET_BY_CATEGORIES, GET_ALL_SPECIES, CLEAR_LIST } from './actiontypes';
 
 const initialState = [];
 
@@ -23,6 +23,9 @@ const reducer = (state = initialState, action) => {
         species_list: action.payload,
       };
       return [...state, newState];
+    }
+    case CLEAR_LIST: {
+      return [];
     }
     default:
       return state;
