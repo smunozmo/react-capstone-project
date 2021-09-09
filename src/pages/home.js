@@ -61,7 +61,7 @@ const Home = () => {
           return (
             <div className="col-6 py-5 text-end" style={{ backgroundImage: `url(${characterList[i].info[0].image})`, backgroundSize: 'cover' }}>
               <Link to="categories">
-                <button type="button" onClick={CurrentCategory} id={i} className="btn btn-info text-nowrap button">{speciesList[i]}</button>
+                <button type="button" onClick={CurrentCategory} id={i} className="btn btn-info button text-end">{speciesList[i]}</button>
                 {' '}
               </Link>
               <p><span className="fs-3 bg-info p-1 shadow-lg">{characterList.length ? character.total_count : loader}</span></p>

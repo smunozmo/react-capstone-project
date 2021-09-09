@@ -18,6 +18,11 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: rgb(174, 218, 15);
+  text-decoration: none;
+}
+
 .mainStat {
   font-size: x-large;
   text-transform: uppercase;
