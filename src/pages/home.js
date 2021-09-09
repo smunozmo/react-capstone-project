@@ -22,19 +22,43 @@ const Home = () => {
       //   const speciesFetch = await charactersFetch.json();
       //   charactersData.push(speciesFetch);
       // }
-      speciesList.forEach(async (e, i) => {
-        if (i === 0) {
-          charactersFetch = await fetch(`${url}${e}`);
-        }
-        charactersFetch = await fetch(`${url}${speciesEndPoint}${e}`);
-
+      
+      const getData = async (e) => {
+        charactersFetch = await fetch(e);
         const speciesFetch = await charactersFetch.json();
         charactersData.push(speciesFetch);
         return charactersData;
+      }
+
+      // for (const iterator of speciesList) {
+      //   if (iterator === '') {
+      //     getData(`${url}${iterator}`);
+      //   }
+      //   charactersFetch = getData(`${url}${speciesEndPoint}${iterator}`);
+      // }
+
+      speciesList.map((e, i) => {
+        if (i === 0) {
+          getData(`${url}${e}`);
+        }
+        charactersFetch = getData(`${url}${speciesEndPoint}${e}`);
+        return charactersData;
       });
 
-      console.log(await charactersData);
-      return dispatch(getCharacters(charactersData));
+      const ListCheck = () => {
+        if (charactersData.length != 0) {
+          clearInterval(getStoreData)
+        } 
+        dispatch(getCharacters(charactersData))
+      }
+
+      const getStoreData = setInterval(() => {ListCheck()}, 500);
+
+      // if (charactersData.length != 0) {
+      //   clearInterval(getStoreData)
+      // }
+      // setTimeout(clearInterval(getStoreData), 1000);
+      return console.log('char', charactersData);;
     };
     fetchCharacters();
   }, []);
@@ -76,7 +100,6 @@ const Home = () => {
       Total characters: &nbsp;
       {characterList.length ? characterList[0].total_count : loader}
       <p>stats by species</p>
-
       <StatsBySpecies />
     </div>
   );

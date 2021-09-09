@@ -9,7 +9,8 @@ const reducer = (state = initialState, action) => {
         total_count: action.payload[key].info.count,
         info: action.payload[key].results,
       }));
-
+      // const newState = action.payload;
+      // console.log('ns', newState);
       return newState;
     }
     case GET_BY_CATEGORIES: {
