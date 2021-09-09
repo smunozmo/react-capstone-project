@@ -13,6 +13,10 @@ body {
   background: rgba(0, 151, 19, 0.5);
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
 /* .opacity {
   opacity: 0.75;
 } */
@@ -39,4 +43,13 @@ body {
 
 .button::after {
   opacity: 1 !important;
+}
+
+.avatar {
+  height: 100px;
+}
+
+.species {
+  background-color: yellowgreen;
+  opacity: 0.95;
 }
