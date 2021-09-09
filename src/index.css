@@ -9,14 +9,13 @@ body {
   overflow-x: hidden;
 }
 
-div {
-  background-color: rgb(0, 99, 21);
-  opacity: 0.9;
+.divbg {
+  background: rgba(0, 151, 19, 0.5);
 }
 
-.opacity {
-  background-color: rgb(2, 124, 28);
-}
+/* .opacity {
+  opacity: 0.75;
+} */
 
 .mainStat {
   font-size: x-large;
@@ -29,10 +28,15 @@ div {
   font-size: x-large;
   text-transform: uppercase;
   font-weight: 900;
-  background: none;
+  /* background: none; */
   color: white;
-  border: none;
+  /* border: none; */
   padding: 0;
   cursor: pointer;
-  outline: inherit;
+  /* outline: inherit; */
+  opacity: 1 !important;
+}
+
+.button::after {
+  opacity: 1 !important;
 }

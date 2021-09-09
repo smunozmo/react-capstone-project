@@ -61,13 +61,12 @@ const Home = () => {
       {characterList.map((character, i) => {
         if (i > 0) {
           return (
-            <div className={(i%2 == 0 ? 'col-6 py-5 text-end' : 'col-6 py-5 text-end opacity')}>
+            <div className="col-6 py-5 text-end" style={{ backgroundImage: `url(${characterList[i].info[0].image})` }}>
               <Link to="categories" key={i}>
-                <button type="button" onClick={CurrentCategory} id={i} className="btn btn-outline-danger text-nowrap button">{speciesList[i]}</button>
+                <button type="button" onClick={CurrentCategory} id={i} className="btn btn-info text-nowrap button">{speciesList[i]}</button>
                 {' '}
               </Link>
-
-              <p className="fs-3">{characterList.length ? character.total_count : loader}</p>
+              <p><span className="fs-3 bg-info p-1 shadow-lg">{characterList.length ? character.total_count : loader}</span></p>
 
             </div>
 
@@ -81,17 +80,15 @@ const Home = () => {
     <div className="container">
       <p className="text-center p-2">Rick and Morty Characters</p>
       <div className="row py-5">
+        <div className="col-6" />
         <div className="col-6">
-          Image
-        </div>
-        <div className="col-6">
-        <p className="mainStat">Total characters: &nbsp;</p>
-        <p className="fs-4">{characterList.length ? characterList[0].total_count : loader}</p>
-          
+          <p className="mainStat"><span className="bg-info p-1">Total characters: &nbsp;</span></p>
+          <p><span className="fs-3 bg-info p-1">{characterList.length ? characterList[0].total_count : loader}</span></p>
+
         </div>
       </div>
-      
-      <p>stats by species</p>
+
+      <p><span className="shadow bg-info p-1">stats by species</span></p>
       <StatsBySpecies />
     </div>
   );
