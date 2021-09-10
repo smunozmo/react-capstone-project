@@ -63,7 +63,7 @@ const Home = () => {
   const CurrentCategory = (e) => (dispatch(getByCategories(e.target.id)));
 
   const StatsBySpecies = () => (
-    <div className="row">
+    <div className="row px-0 overflow-hidden">
       {characterList.map((character, i) => {
         if (i > 0) {
           return (
@@ -81,7 +81,7 @@ const Home = () => {
   );
 
   return (
-    <div className="container">
+    <div className="appcontainer rounded border border-3 border-secondary shadow">
       <p className="text-center p-2">Rick and Morty Characters App</p>
       <div className="row py-5">
         <div className="col-6" />

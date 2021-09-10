@@ -8,11 +8,11 @@ const Categories = () => {
   const categoryIndex = characterList[characterList.length - 1].category_index;
 
   const SpeciesBreakdown = () => (
-    <div className="row">
+    <div className="row speciescontainer">
       {characterList[categoryIndex].info.map((character) => (
         <div className="row species mb-1" key={character.id}>
           <div className="col-4">
-            <img src={character.image} className="avatar img-thumbnail ms-2 mt-3" alt="" />
+            <img src={character.image} className="avatar img-thumbnail mt-3" alt="" />
           </div>
           <div className="col-8 text-end">
             <p className="fs-1">{character.name}</p>
@@ -31,7 +31,7 @@ const Categories = () => {
   const ClearList = () => (dispatch(clearList()));
 
   return (
-    <div className="container p-0">
+    <div className="appcontainer p-0 rounded border border-3 border-secondary shadow">
       <p className="p-2">
         <Link to="/">
           <button type="button" onClick={ClearList} className="btn btn-info backbutton text-end">&lt; Back Home</button>
