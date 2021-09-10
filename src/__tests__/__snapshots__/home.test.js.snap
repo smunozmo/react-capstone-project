@@ -31,22 +31,16 @@ Object {
                 Total characters:  
               </span>
             </p>
-            <p>
+            <div
+              class="spinner-border"
+              role="status"
+            >
               <span
-                class="fs-3 bg-info p-1"
+                class="visually-hidden"
               >
-                <div
-                  class="spinner-border"
-                  role="status"
-                >
-                  <span
-                    class="visually-hidden"
-                  >
-                    Loading...
-                  </span>
-                </div>
+                Loading...
               </span>
-            </p>
+            </div>
           </div>
         </div>
         <p>
@@ -91,22 +85,16 @@ Object {
               Total characters:  
             </span>
           </p>
-          <p>
+          <div
+            class="spinner-border"
+            role="status"
+          >
             <span
-              class="fs-3 bg-info p-1"
+              class="visually-hidden"
             >
-              <div
-                class="spinner-border"
-                role="status"
-              >
-                <span
-                  class="visually-hidden"
-                >
-                  Loading...
-                </span>
-              </div>
+              Loading...
             </span>
-          </p>
+          </div>
         </div>
       </div>
       <p>

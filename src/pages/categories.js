@@ -12,7 +12,7 @@ const Categories = () => {
       {characterList[categoryIndex].info.map((character) => (
         <div className="row species mb-1" key={character.id}>
           <div className="col-4">
-            <img src={character.image} className="avatar ms-2 mt-3" alt="" />
+            <img src={character.image} className="avatar img-thumbnail ms-2 mt-3" alt="" />
           </div>
           <div className="col-8 text-end">
             <p className="fs-1">{character.name}</p>

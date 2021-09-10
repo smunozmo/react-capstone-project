@@ -7,12 +7,12 @@ import '@testing-library/jest-dom/extend-expect';
 import Home from '../pages/home';
 
 describe('React Capstone Project', () => {
-  test('Renders title in Home page:', () => {
+  it('Renders title in Home page:', () => {
     render(<Provider store={store}><BrowserRouter><Home /></BrowserRouter></Provider>);
     expect(screen.getByText('Rick and Morty Characters App')).toBeInTheDocument();
   });
 
-  test('Home snapshot test', () => {
+  it('Home snapshot test', () => {
     const myrender = render(
       <Provider store={store}>
         <BrowserRouter>
