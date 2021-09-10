@@ -1,5 +1,9 @@
 import {
-  GET_ALL_CHARACTERS, GET_BY_CATEGORIES, GET_ALL_SPECIES, CLEAR_LIST,
+  GET_ALL_CHARACTERS,
+  GET_BY_CATEGORIES,
+  GET_ALL_SPECIES,
+  CLEAR_LIST,
+  GET_STATE,
 } from './actiontypes';
 
 const initialState = [];
@@ -28,6 +32,9 @@ const reducer = (state = initialState, action) => {
     }
     case CLEAR_LIST: {
       return [];
+    }
+    case GET_STATE: {
+      return state;
     }
     default:
       return state;

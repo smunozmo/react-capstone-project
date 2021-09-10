@@ -68,7 +68,7 @@ const Home = () => {
         if (i > 0) {
           return (
             <div className="col-6 py-5 text-end" key={nanoid()} style={{ backgroundImage: `url(${characterList[i].info[0].image})`, backgroundSize: 'cover' }}>
-              <Link to="categories">
+              <Link to={speciesList[i]}>
                 <button type="button" onClick={CurrentCategory} id={i} className="btn btn-info button text-end">{speciesList[i]}</button>
               </Link>
               <p><span className="fs-3 bg-info p-1 shadow-lg">{character.total_count}</span></p>
