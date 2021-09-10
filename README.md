@@ -8,7 +8,7 @@
 
 ## Live Demo
 
-Watch it live [here] (https://friendly-shannon-2687a3.netlify.app/)
+Watch it live [here](https://friendly-shannon-2687a3.netlify.app/)
 
 
 ![screenshot](./src/screenshot.png)
