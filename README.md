@@ -2,6 +2,14 @@
 
 > Welcome to my Rick and Morty Characters App project, created with React & Redux, this is an interactive list excercise from Microverse.
 
+## Video Description
+
+[Video link](https://www.loom.com/share/3f8da258272b4a0586d494b868e97aa5)
+
+## Live Demo
+
+Watch it live [here] (https://friendly-shannon-2687a3.netlify.app/)
+
 
 ![screenshot](./src/screenshot.png)
 
