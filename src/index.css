@@ -83,3 +83,7 @@ a:hover {
   background-color: rgb(28, 33, 100);
   opacity: 0.99;
 }
+
+.filtered {
+  display: none;
+}
