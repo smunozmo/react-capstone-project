@@ -1,0 +1,89 @@
+body {
+  background-image: url(/src/white-bg.jpeg);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+.appcontainer {
+  background-image: url(/src/background.jpeg);
+  background-position: top center;
+  background-repeat: repeat;
+  background-size: contain;
+  background-color: #000;
+  max-width: 540px;
+  min-height: 80vh;
+  align-self: center;
+  margin: 20px auto;
+  padding: 0 13px;
+}
+
+.speciescontainer {
+  padding-left: 24px;
+}
+
+.divbg {
+  background: rgba(0, 151, 19, 0.5);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(174, 218, 15);
+  text-decoration: none;
+}
+
+.mainStat {
+  font-size: x-large;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 0;
+}
+
+.button {
+  font-size: x-large;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: white;
+  padding: 0;
+  cursor: pointer;
+  opacity: 1 !important;
+}
+
+.backbutton {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.backbutton:hover {
+  color: rgb(174, 218, 15);
+  background: none;
+}
+
+.button::after {
+  opacity: 1 !important;
+}
+
+.avatar {
+  height: 100px;
+}
+
+.species {
+  background-color: rgb(28, 33, 100);
+  opacity: 0.99;
+}
+
+.filtered {
+  display: none;
+}
